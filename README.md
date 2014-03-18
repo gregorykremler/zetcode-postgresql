@@ -1,0 +1,1 @@
+PostgreSQL tutorial using the psycopg2 database adapter. All materials copyright 2014 Jan Bodnar.
