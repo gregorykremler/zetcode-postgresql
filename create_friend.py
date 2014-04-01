@@ -24,7 +24,7 @@ try:
     cur.execute("INSERT INTO friend (name) VALUES ('Robert')")
     cur.execute("INSERT INTO friend (name) VALUES ('Patrick')")
 
-except psycopg2.DatabaseError, e:
+except psycopg2.DatabaseError as e:
     print 'Error %s' % e
     sys.exit(1)
 

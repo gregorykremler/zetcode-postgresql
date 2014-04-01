@@ -21,7 +21,7 @@ try:
     for row in rows:
         print "%2s %-10s %s" % row
 
-except psycopg2.databaseError, e:
+except psycopg2.databaseError as e:
     print 'Error %s' % e
     sys.exit(1)
 

@@ -20,7 +20,7 @@ try:
     for row in rows:
         print "%s %s %s" % (row['id'], row['name'], row['price'])
 
-except psycopg2.DatabaseError, e:
+except psycopg2.DatabaseError as e:
     print 'Error %s' % e
     sys.exit(1)
 

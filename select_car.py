@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Read query results altogether with .fetchall().
+# Read query results all together with .fetchall().
 
 import psycopg2
 import sys
@@ -18,7 +18,7 @@ try:
     for row in rows:
         print row
 
-except psycopg2.DatabaseError, e:
+except psycopg2.DatabaseError as e:
     print 'Error %s' % e
     sys.exit(1)
 

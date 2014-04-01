@@ -21,7 +21,7 @@ try:
             break
         print row[0], row[1], row[2]
 
-except psycopg2.DatabaseError, e:
+except psycopg2.DatabaseError as e:
     print 'Error %s' % e
     sys.exit(1)
 

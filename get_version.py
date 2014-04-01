@@ -16,7 +16,7 @@ try:
     version = cur.fetchone()
     print version
 
-except psycopg2.DatabaseError, e:
+except psycopg2.DatabaseError as e:
     print 'Error %s' % e
     sys.exit(1)
 

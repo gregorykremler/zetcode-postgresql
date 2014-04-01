@@ -33,7 +33,7 @@ try:
 
     conn.commit()
 
-except psycopg2.DatabaseError, e:
+except psycopg2.DatabaseError as e:
     if conn:
         conn.rollback()
     print 'Error %s' % e

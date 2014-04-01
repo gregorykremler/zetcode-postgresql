@@ -12,8 +12,8 @@ try:
     conn = psycopg2.connect(database='testdb', user='gregorykremler')
     cur = conn.cursor()
 
-    cur.execute("""SELECT table_name FROM information_schema.tables
-                       WHERE table_schema = 'public'""")
+    cur.execute("SELECT table_name FROM information_schema.tables \
+                       WHERE table_schema = 'public'")
     rows = cur.fetchall()
 
     for row in rows:

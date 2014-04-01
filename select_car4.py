@@ -18,7 +18,7 @@ try:
     cur.execute("SELECT * FROM car WHERE id=%(id)s", {'id': uId})
     print cur.fetchone()
 
-except psycopg2.DatabaseError, e:
+except psycopg2.DatabaseError as e:
     if conn:
         conn.rollback()
     print 'Error %s' % e

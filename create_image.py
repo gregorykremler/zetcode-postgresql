@@ -9,17 +9,13 @@ import sys
 
 
 def read_image():
-    f_in = None
     try:
-        f_in = open('photo.jpg', 'rb')
-        img = f_in.read()
-        return img
-    except IOError, e:
-        print "Error %d: %s" % (e.args[0], e.args[1])
+        with open('photo.jpg', 'rb') as f_in:
+            img = f_in.read()
+            return img
+    except IOError as e:
+        print 'Error %d: %s' % (e.errno, e.strerror)
         sys.exit(1)
-    finally:
-        if f_in:
-            f_in.close()
 
 conn = None
 try:
@@ -36,7 +32,7 @@ try:
 
     conn.commit()
 
-except psycopg2.DatabaseError, e:
+except psycopg2.DatabaseError as e:
     if conn:
         conn.rollback()
     print 'Error %s' % e

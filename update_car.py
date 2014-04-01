@@ -22,7 +22,7 @@ try:
 
     print "Number of rows updated: %d" % cur.rowcount
 
-except psycopg2.DatabaseError, e:
+except psycopg2.DatabaseError as e:
     if conn:
         conn.rollback()
     print 'Error %s' % e

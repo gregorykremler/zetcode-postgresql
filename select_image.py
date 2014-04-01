@@ -10,14 +10,11 @@ import sys
 
 def write_image(data):
     try:
-        f_out = open('photo2.jpg', 'wb')
-        f_out.write(data)
-    except IOError, e:
-        print 'Error %d: %s' % (e.args[0], e.args[1])
+        with open('photo2.jpg', 'wb') as f_out:
+            f_out.write(data)
+    except IOError as e:
+        print 'Error %d: %s' % (e.errno, e.strerror)
         sys.exit(1)
-    finally:
-        if f_out:
-            f_out.close()
 
 conn = None
 try:
@@ -28,7 +25,7 @@ try:
     data = cur.fetchone()[0]
     write_image(data)
 
-except psycopg2.DatabaseError, e:
+except psycopg2.DatabaseError as e:
     print 'Error %s' % e
     sys.exit(1)
 
